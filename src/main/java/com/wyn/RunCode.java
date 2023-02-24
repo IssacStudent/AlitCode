@@ -1,12 +1,6 @@
 package com.wyn;
 
-import com.wyn.enums.SortMethod;
-import com.wyn.model.TreeNode;
-import com.wyn.top100.BuildTree;
-import com.wyn.utils.Print;
-import com.wyn.utils.sort.SortStrategy;
-
-import java.util.Collections;
+import com.wyn.top100.LRUCache;
 
 public class RunCode {
     public static void main(String[] args) {
@@ -14,10 +8,15 @@ public class RunCode {
 //        SortStrategy.getMethodMap().get(SortMethod.QUICK).accept(nums);
 //        Print.printList(Collections.singletonList(nums));
 //        System.out.println();
-        int[] pre = new int[]{1,2,4,5,3,6,7};
-        int[] in = new int[]{4,2,5,1,6,3,7};
-        BuildTree buildTree = new BuildTree();
-        TreeNode treeNode = buildTree.buildTree(pre, in);
-        System.out.println();
+        LRUCache lRUCache = new LRUCache(2);
+        lRUCache.put(1,0);
+        lRUCache.put(2, 2);
+        lRUCache.get(1);
+        lRUCache.put(3, 3);
+        lRUCache.get(2);
+        lRUCache.put(4, 4);
+        lRUCache.get(1);
+        lRUCache.get(3);
+        lRUCache.get(4);
     }
 }

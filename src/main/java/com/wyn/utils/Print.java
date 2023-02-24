@@ -11,6 +11,28 @@ public class Print {
                 System.out.print(", ");
             }
         }
-        System.out.println("]");
+        System.out.print("]");
+    }
+
+    public static void printList(int[] list) {
+        System.out.print("[");
+        for (int i = 0; i < list.length; i++) {
+            System.out.print(list[i]);
+            if (i != list.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.print("]");
+    }
+
+    public static void printList(int[][] list) {
+        System.out.print("[");
+        for (int i = 0; i < list.length; i++) {
+            printList(list[i]);
+            if (i != list.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.print("]");
     }
 }
