@@ -1,4 +1,4 @@
-package com.wyn.top100;
+package com.wyn.top100.binarytree;
 
 import com.wyn.model.TreeNode;
 
