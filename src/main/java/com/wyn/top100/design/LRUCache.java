@@ -1,4 +1,4 @@
-package com.wyn.top100;
+package com.wyn.top100.design;
 
 import java.util.HashMap;
 import java.util.Map;

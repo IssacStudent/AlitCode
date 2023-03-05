@@ -1,7 +1,6 @@
 package com.wyn;
 
 import com.wyn.model.ListNode;
-import com.wyn.top100.LRUCache;
 import com.wyn.top100.listnode.SortList;
 import com.wyn.utils.build.LinkedListBuilder;
 
