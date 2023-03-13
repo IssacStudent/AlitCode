@@ -1,6 +1,7 @@
 package com.wyn;
 
 import com.wyn.model.ListNode;
+import com.wyn.top100.listnode.ReverseList;
 import com.wyn.top100.listnode.SortList;
 import com.wyn.utils.build.LinkedListBuilder;
 
@@ -20,9 +21,10 @@ public class RunCode {
 //        lRUCache.get(1);
 //        lRUCache.get(3);
 //        lRUCache.get(4);
-        int[] nums = new int[]{4,2,1,3};
+        int[] nums = new int[]{1,2,3,4,5};
         ListNode listNode = LinkedListBuilder.buildLinkedList(nums);
-        SortList sortList = new SortList();
-        sortList.sortList(listNode);
+        ReverseList reverseList = new ReverseList();
+        ListNode listNode1 = reverseList.reverseList(listNode);
+        System.out.println();
     }
 }
