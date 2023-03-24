@@ -16,28 +16,30 @@ public class LengthOfLIS {
         dp[0] = 1;
         int result = 1;
         for (int i = 1; i < nums.length; i++) {
-            int max = -1;
-            boolean flag = false;
+            int tmpMax = 0;
             for (int j = 0; j < i; j++) {
                 if (nums[j] < nums[i]) {
-                    max = Math.max(max, dp[j]);
-                    flag = true;
+                    tmpMax = Math.max(tmpMax, dp[j]);
                 }
             }
-            if (flag) {
-                dp[i] = max + 1;
-            } else {
-                //如果前面没有一个数字比它小，那必须置为1
-                dp[i] = 1;
+            dp[i] = tmpMax + 1;
+            result = Math.max(result, dp[i]);
+        }
+        //输出序列（最小字典序）
+        //从后往前扫描，一定是字典序最小的
+        int j = result;
+        int[] resultSeq = new int[result];
+        for (int i = dp.length - 1; i >= 0; i--) {
+            if (dp[i] == j) {
+                resultSeq[--j] = nums[i];
             }
-            result = Math.max(dp[i], result);
         }
         return result;
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1,3,6,7,9,4,10,5,6};
+        int[] nums = new int[]{1,3,2,6};
         LengthOfLIS lengthOfLIS = new LengthOfLIS();
-        lengthOfLIS.lengthOfLIS(nums);
+        System.out.println(lengthOfLIS.lengthOfLIS(nums));
     }
 }

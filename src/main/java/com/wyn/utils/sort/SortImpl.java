@@ -77,4 +77,44 @@ public class SortImpl {
         doQuickSort(nums, i + 1, end);
     }
 
+    private static int heapSize;
+
+    private static void swap(int[] arr, int i, int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
+
+    private static void buildMaxHeap(int[] nums) {
+        for (int i = (nums.length / 2) - 1; i >= 0; i--) {
+            heapify(nums, i);
+        }
+    }
+
+    private static void heapify(int[] nums, int i) {
+        int left = i * 2 + 1;
+        int right = i * 2 + 2;
+        int largest = i;
+        if (left < heapSize && nums[left] > nums[largest]) {
+            largest = left;
+        }
+        if (right < heapSize && nums[right] > nums[largest]) {
+            largest = right;
+        }
+        if (i != largest) {
+            swap(nums, largest, i);
+            heapify(nums, largest);
+        }
+    }
+
+    public static void heapSort(int[] nums) {
+        heapSize = nums.length;
+        buildMaxHeap(nums);
+        for (int i = nums.length - 1; i > 0; i--) {
+            swap(nums, i, 0);
+            heapSize--;
+            heapify(nums, 0);
+        }
+    }
+
 }
